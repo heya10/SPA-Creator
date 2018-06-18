@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head data-th-replace="fragments/head :: head(${basicConf})"></head>
+<body id="page-top">
+<div data-th-each="view: ${views}" data-th-remove="tag">
+<div data-th-replace="views/__${view.viewType}__ :: __${view.name}__(${view.props})"></div>
+</div>
+	
+<!-- Scripts import -->
+<div data-th-replace="fragments/scripts"></div>
+  
+</body>
+</html>

@@ -1,0 +1,48 @@
+<div data-th-fragment="simple-section(props)" class="testbg1 text-center" 
+	data-th-classappend="${(props.get('width')!=null and props.get('width')=='container-fluid')? 'container-fluid' : 'container'}">
+	<div class="row d-flex align-items-center justify-content-center"
+		data-th-classappend="${(props.get('height')!=null and props.get('height')=='full-height')? 'full-height' : ''}">
+		<div class="col">
+			<div data-th-if="${props.get('header-visibility')!=null and props.get('header-visibility')=='true'}" data-th-remove="tag">
+			<h1 data-th-text="${(props.get('header-text')!=null and props.get('header-text').length() > 0)? props.get('header-text'):'HEADER TEXT'}">HEADER TEXT</h1>
+			</div>
+			<div data-th-if="${props.get('hr-after-header')!=null and props.get('hr-after-header')=='true'}" data-th-remove="tag">
+			<hr/>
+			</div>
+			<div data-th-if="${props.get('paragraph-visibility')!=null and props.get('paragraph-visibility')=='true'}" data-th-remove="tag">
+			<p data-th-text="${(props.get('paragraph-text')!=null and props.get('paragraph-text').length() > 0)? props.get('paragraph-text'):'Paragraph text.'}">Paragraph text.</p>
+			</div>
+			<div data-th-if="${props.get('button-visibility')!=null and props.get('button-visibility')=='true'}" data-th-remove="tag">
+			<a role="button" class="btn btn-outline-primary"
+				data-th-href="${(props.get('button-href')!=null and props.get('button-text').length() > 0)? props.get('button-href'):'#'}"
+				data-th-text="${(props.get('button-text')!=null and props.get('button-text').length() > 0)? props.get('button-text'):'CLICK'}">CLICK</a>			
+			</div>
+		</div>
+	</div>
+</div>
+
+<div  data-th-fragment="multiple-columns-section(props)" class="testbg4 text-center"
+	data-th-classappend="${(props.get('width')!=null and props.get('width')=='container-fluid')? 'container-fluid' : 'container'}">
+	<div class="row"
+		data-th-classappend="${(props.get('height')!=null and props.get('height')=='full-height')? 'full-height' : ''}">
+		<div style="width:100%;">
+			<div data-th-if="${props.get('header-visibility')!=null and props.get('header-visibility')=='true'}" data-th-remove="tag">
+			<h1 data-th-text="${(props.get('header-text')!=null and props.get('header-text').length() > 0)? props.get('header-text'):'HEADER TEXT'}">HEADER TEXT</h1>
+			</div>
+			<div data-th-if="${props.get('hr-after-header')!=null and props.get('hr-after-header')=='true'}" data-th-remove="tag">
+			<hr/>
+			</div>
+			<br/>
+		</div>
+		<div class="multiple-columns-section d-flex justify-content-around align-items-center">
+			<div data-th-each="i : ${#numbers.sequence(1,5)}" data-th-with="myProp=${'-col-'+i}" data-th-remove="tag">
+				<div data-th-if="${!#strings.isEmpty(props.get('text'+myProp))}">
+					<i data-th-if="${!#strings.isEmpty(props.get('icon'+myProp))}" class="fas fa-3x" 
+						data-th-classappend="${'fa-'+props.get('icon'+myProp)}"></i>
+					<h4 data-th-if="${!#strings.isEmpty(props.get('header'+myProp))}" data-th-text="${props.get('header'+myProp)}"></h4>
+					<p data-th-if="${!#strings.isEmpty(props.get('text'+myProp))}" data-th-text="${props.get('text'+myProp)}"></p>
+				</div>
+			</div>			
+		</div>
+	</div>
+</div>

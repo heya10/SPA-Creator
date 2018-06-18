@@ -1,0 +1,25 @@
+<nav data-th-fragment="navbar(props)" data-th-classappend="|${props.get('nav-position')=='fixed-top'? 'fixed-top':''} ${props.get('nav-position')=='sticky-top'? 'sticky-top':''}|" class="navbar navbar-expand-lg navbar-light bg-light">
+<div class="container">
+  <div data-th-if="${props.get('brand-visibility')=='true'}">
+  	<a class="navbar-brand js-scroll-trigger" href="#page-top">
+    	<!--<img src="/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="" />-->
+    	<div data-th-switch="${props.get('brand-text')}" data-th-remove="tag">
+    		<div data-th-case="null" data-th-remove="tag">Bootstrap</div>
+    	    <div data-th-case="*" data-th-text="${props.get('brand-text').trim().isEmpty()==false ? props.get('brand-text'):'Bootstrap'}" data-th-remove="tag">Bootstrap</div>
+    	</div>
+  	</a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <!-- this div.class: ml-auto - all links (except brand name) to right side -->
+    <div data-th-classappend="${props.get('items-align')=='right'? 'ml-auto':''}" class="navbar-nav">
+      <a class="nav-item nav-link" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">Features</a>
+      <a class="nav-item nav-link" href="#">Pricing</a>
+      <a class="nav-item nav-link" href="#">Disabled</a>
+    </div>
+  </div>
+</div>
+</nav>

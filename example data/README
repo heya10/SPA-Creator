@@ -1,0 +1,1 @@
+You need to create database called "spa_creator" and two collection "basic_conf", "page" then import both documents into proper collection.

@@ -1,0 +1,2 @@
+{"_id":{"$oid":"5b2022cad23d3e1d342b18e9"},"title":"To jest moja strona","description":"To jest opis strony, który będzie widoczny w wyszukiwarce google","icon":"","created_at":{"$timestamp":{"t":1528832794,"i":1}}}
+{"_id":{"$oid":"5b2140b571863313b472e56d"},"title":"Kolejny tytuł strony","description":"Kolejny opis strony","icon":"","created_at":{"$timestamp":{"t":1528905949,"i":1}}}

@@ -1,0 +1,28 @@
+<div data-th-fragment="simple-contact(props)" class="testbg2 text-center" 
+	data-th-classappend="${(props.get('width')!=null and props.get('width')=='container-fluid')? 'container-fluid' : 'container'}">
+	<div class="row d-flex align-items-center justify-content-center"
+		data-th-classappend="${(props.get('height')!=null and props.get('height')=='full-height')? 'full-height' : ''}">
+		<div class="col">
+			<div data-th-if="${props.get('header-visibility')!=null and props.get('header-visibility')=='true'}" data-th-remove="tag">
+			<h1 data-th-text="${(props.get('header-text')!=null and props.get('header-text').length() > 0)? props.get('header-text'):'HEADER TEXT'}">HEADER TEXT</h1>
+			</div>
+			<div data-th-if="${props.get('hr-after-header')!=null and props.get('hr-after-header')=='true'}" data-th-remove="tag">
+			<hr/>
+			</div>
+			<div data-th-if="${props.get('paragraph-visibility')!=null and props.get('paragraph-visibility')=='true'}" data-th-remove="tag">
+			<p data-th-text="${(props.get('paragraph-text')!=null and props.get('paragraph-text').length() > 0)? props.get('paragraph-text'):'Paragraph text.'}">Paragraph text.</p>
+			</div>
+			<div data-th-if="${props.get('telephone-visibility')!=null or props.get('email-visibility')!=null}">
+				<div data-th-if="${props.get('telephone-visibility')=='true'}" data-th-text="${props.get('telephone-text')}" class="contact-display">1</div>
+				<span style="display: inline-block; width: 64px;"> </span>
+				<div data-th-if="${props.get('email-visibility')=='true'}" class="contact-display">
+				<a data-th-href="'mailto:' + ${props.get('email-text')}" data-th-text="${props.get('email-text')}"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-th-fragment="simple-map(props)">
+<iframe data-th-src="'https://www.openstreetmap.org/export/embed.html?bbox=' + ${T(pl.gielzak.spa_creator.services.BboxConverter).convert(props.get('latitude'),props.get('longitude'))}" width="100%" height="450px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+</div>

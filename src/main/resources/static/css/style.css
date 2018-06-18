@@ -1,0 +1,57 @@
+.full-height{
+	height: 100vh;
+}
+.footer{
+	background-color: white;
+}
+.sticky-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: #f5f5f5;
+}
+.container>.row, .container-fluid>.row{
+	padding-top: 120px;
+	padding-bottom: 120px;
+}
+.multiple-columns-section{
+	width: 100%;
+}
+
+
+.testbg1{
+	background-color: rgba(240,240,240,0.8);
+}
+.testbg2{
+	background-color: rgba(224,224,224,0.7);
+}
+.testbg3{
+	background-color: rgba(208,208,208,0.6);
+}
+.testbg4{
+	background-color: rgba(192,192,192,0.5);
+}
+.testbg5{
+	background-color: rgba(176,176,176,0.4);
+}
+.testbg6{
+	background-color: rgba(160,160,160,0.3);
+}
+.testbg7{
+	background-color: rgba(144,144,144,0.2);
+}
+.testbg8{
+	background-color: rgba(128,128,128,0.1);
+}
+@media only screen and (max-width: 576px) {
+    .multiple-columns-section{
+    	flex-direction: column;
+	}
+}
+@media only screen and (min-width: 576px) {
+    .contact-display{
+    	display:inline-block;
+    }
+}

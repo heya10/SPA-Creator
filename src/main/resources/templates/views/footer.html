@@ -1,0 +1,12 @@
+<footer data-th-fragment="simple-footer(props)" class="footer" data-th-classappend="${(props.get('footer-position')!=null and props.get('footer-position')=='fixed-bottom')? 'fixed-bottom' : ''}">
+  <div class="container text-center">
+    <span class="text-muted" 
+    	data-th-if="${props.get('text-first')!=null and props.get('text-first').length() > 0}"
+    	data-th-text="${props.get('text-first')}">First text </span>
+    <span class="text-muted" 
+    	data-th-if="${props.get('copyright-sign-visibility')!=null and props.get('copyright-sign-visibility')=='true'}">&copy;</span>
+    <span class="text-muted" 
+    	data-th-if="${props.get('text-second')!=null and props.get('text-second').length() > 0}"
+    	data-th-text="${props.get('text-second')}"> Second text</span>
+  </div>
+</footer>
