@@ -2,14 +2,16 @@ package pl.gielzak.spa_creator.domain;
 
 import java.util.List;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
+@Document(collection="views")
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageView {
+public class View {
 
 	@Field("view-name")
 	public String viewName;

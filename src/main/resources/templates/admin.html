@@ -1,1 +1,19 @@
-admin
+<!DOCTYPE html>
+<html>
+<head data-th-replace="fragments/head :: head(${basicConf})"></head>
+<body>
+<div class="container full-height">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div>
+    <h4>Menu:</h4>
+    <div><a data-th-href="@{/}">Preview</a></div>
+    <div><a data-th-href="@{/admin/basic-configuration}">Basic Configuration</a></div>
+    <div><a data-th-href="@{/admin/editor}">Editor</a></div>
+    <!--<div><a data-th-href="@{/admin/modules}">Modules</a></div>-->
+    <br/>
+    <div><a data-th-href="@{/logout}">Logout</a></div>
+    </div>   
+  </div>
+</div>
+</body>
+</html>

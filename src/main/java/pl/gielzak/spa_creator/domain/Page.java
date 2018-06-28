@@ -1,8 +1,8 @@
 package pl.gielzak.spa_creator.domain;
 
+import java.util.Date;
 import java.util.List;
 
-import org.bson.types.BSONTimestamp;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -19,8 +19,32 @@ public class Page {
 	public String id;
 	
 	@Field("created_at")
-	public BSONTimestamp createdAt;
+	public Date createdAt;
 	
 	public List<PageView> views;
 
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
+	public List<PageView> getViews() {
+		return views;
+	}
+
+	public void setViews(List<PageView> views) {
+		this.views = views;
+	}
+	
 }

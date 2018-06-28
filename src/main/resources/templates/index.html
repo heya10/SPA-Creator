@@ -2,8 +2,22 @@
 <html>
 <head data-th-replace="fragments/head :: head(${basicConf})"></head>
 <body id="page-top">
+<div data-th-if="${views.isEmpty()}">
+	<div class="container full-height">
+	  	<div class="row h-100 justify-content-center align-items-center">
+		  	<div>
+				<p>There is no Views defined, please go to Admin Menu <a data-th-href="@{/admin}">HERE</a> and define some views.</p>
+				<p>Remember to add the address of admin page to bookmarks so you wont forget it :)</p>
+		  	</div>
+		</div>
+	</div>
+</div>
 <div data-th-each="view: ${views}" data-th-remove="tag">
-<div data-th-replace="views/__${view.viewType}__ :: __${view.name}__(${view.props})"></div>
+<div data-th-replace="views/__${view.viewType}__ :: __${view.viewName}__(${view.props})"></div>
+</div>
+
+<div data-sec-authorize="hasRole('ROLE_ADMIN')" class="fixed-bottom-right">
+<a data-th-href="@{/admin/editor}">Go to editor</a>
 </div>
 	
 <!-- Scripts import -->

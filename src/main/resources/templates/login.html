@@ -1,1 +1,26 @@
-login
+<!DOCTYPE html>
+<html>
+<head data-th-replace="fragments/head :: head(${basicConf})"></head>
+<body>
+<div class="container full-height">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="login-form-container">
+    
+  		<div>Log in</div>
+  		<hr style="border-top: 2px solid #73AD21;"/>
+        <div data-th-if="${param.error}" class="alert alert-danger" role="alert">
+            Invalid username and password.
+        </div>
+        <div data-th-if="${param.logout}" class="alert alert-success" role="alert">
+            You have been logged out.
+        </div>
+        <form data-th-action="@{/login}" method="post" style="padding-top:15px;">
+            <div><label> User Name : <input type="text" name="username"/> </label></div>
+            <div><label> Password: <input type="password" name="password"/> </label></div>
+            <div><input type="submit" value="Sign In"/></div>
+        </form>
+    </div>   
+  </div>
+</div>
+</body>
+</html>

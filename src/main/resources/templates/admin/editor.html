@@ -1,1 +1,90 @@
-editor
+<!DOCTYPE html>
+<html>
+<head data-th-replace="fragments/head :: head(${basicConf})"></head>
+<body>
+<div class="container full-height">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div>	
+        <div><a data-th-href="@{/admin}">Return to Admin Menu</a></div>
+    	<h3>Editor</h3>
+    	<h4>Add "views" and set proper order</h4>
+    	<hr/>
+    	<div>
+    		<div id="views-menu" style="display:inline-block;vertical-align:top;">
+    		<!-- Views which you can use in your app -->
+    		<h5>Navigation views</h5>
+    		<div><button onclick="addNewViewFromTemplate('navbar')" class='btn btn-light'>Navbar</button></div>
+    		<h5>Sections</h5>
+    		<div><button onclick="addNewViewFromTemplate('simple-section')" class='btn btn-light'>Simple section (header, text, button)</button></div>
+    		<div><button onclick="addNewViewFromTemplate('multiple-columns-section')" class='btn btn-light'>4 column section (with icons)</button></div>
+    		<h5>Business</h5>
+    		<div><button onclick="addNewViewFromTemplate('simple-map')" class='btn btn-light'>Simple map</button></div>
+    		<div><button onclick="addNewViewFromTemplate('simple-contact')" class='btn btn-light'>Simple contact (phone number, email)</button></div>
+    		<h5>Footer</h5>
+    		<div><button onclick="addNewViewFromTemplate('simple-footer')" class='btn btn-light'>Simple footer</button></div>
+			</div>
+    		<div style="display:inline-block;vertical-align:top;">
+    		<!-- Your website with views you choosed in certain order -->
+    		<h5>Order</h5>
+    		<table class="table">
+			  <thead>
+			    <tr>
+			      <th scope="col">Name</th>
+			      <th scope="col">Up</th>
+			      <th scope="col">Down</th>
+			      <th scope="col">Settings</th>
+			      <th scope="col">Delete</th>
+			    </tr>
+			  </thead>
+			  <tbody id="current-views">
+			  </tbody>
+			</table>
+    		</div>
+    	</div>
+    	<div>
+    	<hr/>
+    	<button onclick="saveNewPageVersion()" class='btn btn-light'>Save Page</button>
+    	</div>	
+    </div>   
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal">
+          <span>&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="myModalBody">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button onclick="saveChangesInViewArray()" type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="fixed-bottom-right">
+<a data-th-href="@{/}">Go to index</a>
+</div>
+
+<script th:inline="javascript">
+/*<![CDATA[*/
+
+    var pageViews = /*[[${page}]]*/ null;
+    
+    var viewTemplates = /*[[${views}]]*/ null;
+
+/*]]>*/
+</script>
+
+<!-- Scripts import -->
+<div data-th-replace="fragments/scripts"></div>
+</body>
+</html>

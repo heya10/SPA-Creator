@@ -1,1 +1,32 @@
-basic-configuration
+<!DOCTYPE html>
+<html>
+<head data-th-replace="fragments/head :: head(${basicConf})"></head>
+<body>
+<div class="container full-height">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div>	
+        <div><a data-th-href="@{/admin}">Return to Admin Menu</a></div>
+    	<h3>Basic Configuration</h3>
+    	<div data-th-if="${errorNotEnoughParameters}" class="alert alert-danger" role="alert">
+            Title and description must be filled.
+        </div>
+    	<form data-th-action="@{/admin/basic-configuration}" method="post" enctype="multipart/form-data">
+    		<div><label>Title:</label></div>
+    		<div><input type="text" data-th-value="${basicConf.title}" name="title" /></div>
+    		<div><label>Description:</label></div>
+    		<div><input type="text" data-th-value="${basicConf.description}" name="description" /></div>
+    		<div><label>Icon:</label></div>
+    		<div data-th-switch="${basicConf.icon.length()}">
+    			<div data-th-case="0">No icon</div>
+    			<div data-th-case="*"><img data-th-src="${'/icon/'+ basicConf.icon}" /></div>
+    		</div>
+    		<input type="hidden" name="icon" data-th-value="${basicConf.icon}" />
+    		<div><input type="file" name="file" /></div>
+    		<br/>
+            <div><input type="submit" value="Save" class="btn btn-outline-dark"/></div>
+    	</form>
+    </div>   
+  </div>
+</div>
+</body>
+</html>

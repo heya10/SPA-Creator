@@ -1,1 +1,1 @@
-You need to create database called "spa_creator" and two collection "basic_conf", "page" then import both documents into proper collection.
+You need to create database called "spa_creator" and three collection "basic_conf", "page" and "views" then import all documents into proper collection.

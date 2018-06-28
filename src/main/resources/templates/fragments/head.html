@@ -3,6 +3,10 @@
     <meta name="description" data-th-content="${basicConf.description}" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<div data-th-switch="${basicConf.icon.length()}" data-th-remove="tag">
+	<div data-th-case="0" data-th-remove="tag"><!-- No icon selected --></div>
+	<div data-th-case="*" data-th-remove="tag"><link rel="icon" type="image/x-icon" data-th-href="${'/icon/'+ basicConf.icon}" /></div>
+</div>    
     <!-- CSS import -->
     <link rel="stylesheet" type="text/css" media="all" data-th-href="@{/webjars/bootstrap/4.1.0/css/bootstrap.min.css}" />
     <link rel="stylesheet" type="text/css" media="all" data-th-href="@{/webjars/font-awesome/5.0.13/web-fonts-with-css/css/fontawesome-all.min.css}" />
